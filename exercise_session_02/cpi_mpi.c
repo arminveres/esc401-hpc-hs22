@@ -2,7 +2,7 @@
 #include <sys/time.h>
 #include "mpi.h"
 
-static long nSteps = 1000000000;
+static long nSteps = 3000000000;
 static double PI25DT = 3.141592653589793238462643;
 
 double getTime(void) {
