@@ -26,7 +26,7 @@ int main(int argc, char** argv){
     }
 
     #pragma omp parallel for reduction(+:sum)
-	for (int i = 0 ; i < nSteps; i ++) {
+	for (long i = 0 ; i < nSteps; i ++) {
 	    x = h * ((double)i - 0.5);
 	    sum += 4.0 / (1.0 + x*x);
 	}

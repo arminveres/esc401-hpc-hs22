@@ -13,7 +13,8 @@ double getTime(void) {
 }
 
 int main(int argc, char** argv){
-    int n, myRank, nProcs, i;
+    int myRank, nProcs;
+    long i;
     double mypi, pi, h, sum, x;
     double tStart, tElapsed;
 
