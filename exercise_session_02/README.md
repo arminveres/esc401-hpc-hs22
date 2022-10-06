@@ -10,3 +10,8 @@ Prenv: I am using PrgEnv-cray by default.
 ## Task 3:
 To get the requested squeue fields I would use the following formatting:
 `squeue -o "%i %u %p %a %j %D %t %r %S %L %p"`
+
+## Task 4:
+
+Using one thread results in 4.538 seconds and using 10 threads in 0.4578, which is around a factor of ten
+Removing Optimization level 3 (-O3) results in 23.62 seconds, but with -O3 we are done in 0.1162 seconds!
