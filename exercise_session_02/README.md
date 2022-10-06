@@ -6,3 +6,7 @@ Prenv: I am using PrgEnv-cray by default.
 `module list` lists all the enabled modules
 `module avail` lists the available modules
 `module spider` also lists the available modules but given a keyword it can search for that
+
+## Task 3:
+To get the requested squeue fields I would use the following formatting:
+`squeue -o "%i %u %p %a %j %D %t %r %S %L %p"`
