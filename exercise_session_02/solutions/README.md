@@ -57,3 +57,7 @@ Environment variable `OMP_NUM_THREADS` is crucial in letting OMP know how many t
 |-------|---|---|---|---|---|---|---|---|
 |Running time (s) |  4.502 | 2.291 | 0.899 | 0.458 | 0.228 | 0.098 | 0.104 | 0.116 |
 
+
+![alt text](http://url/to/img.png)
+
+
