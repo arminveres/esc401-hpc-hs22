@@ -29,7 +29,7 @@ This flag enables compiler optimizations, which will attempt to improve the perf
  
  **What are the results of commands `module list`, `module avail` and `module spider`?**
  
- `module list` displays the list of all modules that are currently loaded, `module avail` all the modules that are available for loading (directly) and `module spider` all the modules on a system (see `https://lmod.readthedocs.io/en/latest/135_module_spider.html` for more details). 
+ `module list` displays the list of all modules that are currently loaded, `module avail` all the modules that are available for loading (directly) and `module spider` all the modules on a system (see https://lmod.readthedocs.io/en/latest/135_module_spider.html for more details). 
  
 ## Exercise 03
 
@@ -53,10 +53,11 @@ Use the friendly command `squeue --Format=JOBID,USERNAME,PRIORITY,ACCOUNT,NAME,N
 
 Environment variable `OMP_NUM_THREADS` is crucial in letting OMP know how many threads to launch. So even with `--cpus-per-task=10` but setting `OMP_NUM_THREADS=1`, your code will run on a single thread (though being serial).  
 
-||Number of threads | 1 | 2 | 5 | 10 | 20 | 50 | 100 | 128 |
-|-------|---|---|---|---|
+|Number of threads | 1 | 2 | 5 | 10 | 20 | 50 | 100 | 128 |
+|-------|---|---|---|---|---|---|---|---|
 |Running time (s) |  4.502 | 2.291 | 0.899 | 0.458 | 0.228 | 0.098 | 0.104 | 0.116 |
 
 
+![alt text](http://url/to/img.png)
 
 
