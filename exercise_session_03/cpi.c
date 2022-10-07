@@ -19,7 +19,7 @@ int main(int argc, char** argv){
 	sum = 0.0;
     tStart = getTime();
 
-	for (int i = 0 ; i < nSteps; i ++) {
+	for (long i = 0 ; i < nSteps; i ++) {
 	    x = h * ((double)i - 0.5);
 	    sum += 4.0 / (1.0 + x*x);
 	}

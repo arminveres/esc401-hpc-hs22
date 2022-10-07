@@ -5,7 +5,8 @@ static long nSteps = 1000000000;
 static double PI25DT = 3.141592653589793238462643;
 
 int main(int argc, char** argv){
-    int n, myRank, nProcs, i;
+    int n, myRank, nProcs;
+    long i;
     double mypi, pi, h, sum, x;
     double tWStart, tWElapsed;
 
