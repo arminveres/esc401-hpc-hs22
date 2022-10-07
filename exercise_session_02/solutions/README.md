@@ -59,7 +59,9 @@ Use the friendly command `squeue --Format=JOBID,USERNAME,PRIORITY,ACCOUNT,NAME,N
 
 ## Exercise 04
 
-Environment variable `OMP_NUM_THREADS` is crucial in letting OMP know how many threads to launch. So even with `--cpus-per-task=10` but setting `OMP_NUM_THREADS=1`, your code will run on a single thread (though being serial).  
+Environment variable `OMP_NUM_THREADS` is crucial in letting OMP know how many threads to launch. So even with `--cpus-per-task=10` but setting `OMP_NUM_THREADS=1`, your code will run on a single thread (thus being serial).
+
+Following table shows the execution times of OMP code with `nSteps = 3'000'000'000`.
 
 |Number of threads | 1 | 2 | 5 | 10 | 20 | 50 | 100 | 128 |
 |-------|---|---|---|---|---|---|---|---|
