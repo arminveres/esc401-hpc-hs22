@@ -44,6 +44,7 @@ To separate the standard output and errors from the code execution, use differen
 #SBATCH --output="output.log"
 #SBATCH --error="error.log"
 ```
+For more options and details, see https://slurm.schedmd.com/sbatch.html. 
 
 **First jobscript running hostname**
 
