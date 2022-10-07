@@ -58,5 +58,9 @@ Environment variable `OMP_NUM_THREADS` is crucial in letting OMP know how many t
 |Running time (s) |  4.502 | 2.291 | 0.899 | 0.458 | 0.228 | 0.098 | 0.104 | 0.116 |
 
 
-
+||Serial |MPI |OpenMP |MPI+OpenMP |
+|-------|---|---|---|---|
+|Tasks per node|1|36|1|6|
+|CPUs per task|1|1|36|6|
+|Running time (s)|1.368|0.04891|0.1112|0.1165|
 
