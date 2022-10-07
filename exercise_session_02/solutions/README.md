@@ -53,7 +53,7 @@ Use the friendly command `squeue --Format=JOBID,USERNAME,PRIORITY,ACCOUNT,NAME,N
 
 Environment variable `OMP_NUM_THREADS` is crucial in letting OMP know how many threads to launch. So even with `--cpus-per-task=10` but setting `OMP_NUM_THREADS=1`, your code will run on a single thread (though being serial).  
 
-||Number of threads | 1 | 2 | 5 | 10 | 20 | 50 | 100 | 128 |
+|| Number of threads | 1 | 2 | 5 | 10 | 20 | 50 | 100 | 128 |
 |-------|---|---|---|---|
 |Running time (s) |  4.502 | 2.291 | 0.899 | 0.458 | 0.228 | 0.098 | 0.104 | 0.116 |
 
