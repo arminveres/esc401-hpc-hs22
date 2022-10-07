@@ -57,7 +57,7 @@ Environment variable `OMP_NUM_THREADS` is crucial in letting OMP know how many t
 |-------|---|---|---|---|---|---|---|---|
 |Running time (s) |  4.502 | 2.291 | 0.899 | 0.458 | 0.228 | 0.098 | 0.104 | 0.116 |
 
-BONUS: From the attached figure one can see that the OMP speedup for the code is close to ideal for number of threads up to ~50, we do not gain much by further increasing the thread number. The possible explanation is that (given the simplicity of the code), the runtime starts to be dominated by updating of `sum`variable, which is locked while being modified by a specific thread. More threads are capable of faster calculation, but the reduction cannot be made faster anymore.
+BONUS: From the attached figure one can see that the OMP speedup for the code is close to ideal for number of threads up to ~50, we do not gain much by further increasing the thread number. The possible explanation is that (given the simplicity of the code), the runtime starts to be dominated by updating of `sum` variable, which is locked while being modified by a specific thread. More threads are capable of faster calculation, but the reduction cannot be made faster anymore.
 
 ![alt text](https://github.com/jbucko/hpc_esc_401/blob/master/exercise_session_02/solutions/speedup/OMP_speedup.jpeg)
 
