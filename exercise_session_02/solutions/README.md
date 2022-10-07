@@ -29,7 +29,7 @@ This flag enables compiler optimizations, which will attempt to improve the perf
  
  **What are the results of commands `module list`, `module avail` and `module spider`?**
  
- `module list` displays the list of all modules that are currently loaded, `module avail` all the modules that are available for loading (directly) and `module spider` all the modules on a system (see `https://lmod.readthedocs.io/en/latest/135_module_spider.html` for more details). 
+ `module list` displays the list of all modules that are currently loaded, `module avail` all the modules that are available for loading (directly) and `module spider` all the modules on a system (see https://lmod.readthedocs.io/en/latest/135_module_spider.html for more details). 
  
 ## Exercise 03
 
