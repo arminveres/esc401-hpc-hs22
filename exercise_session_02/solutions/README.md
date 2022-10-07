@@ -38,7 +38,7 @@ This flag enables compiler optimizations, which will attempt to improve the perf
 The command `sinfo` is used to view partition and node information for a system running Slurm. Here, we look at the "debug" partition with the `-p debug` flag. A list of submitted jobs can be viewed with `squeue`, to only print one single user's jobs, use `squeue -u <username>`
 
 **Logging errors to separate file**
-To separate the standard output and errors from the code execution, use different SLURM options - `--output` for output file and `--error` for file catching all the errors. So you should have these two lines in your job script:
+To separate the standard output and errors from the code execution, use different SLURM options: `--output` for output file and `--error` for file catching all the errors. So you should have these two lines in your job script:
 
 ```console
 #SBATCH --output="output.log"
