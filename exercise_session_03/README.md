@@ -35,6 +35,8 @@ The difference also is less than 10ms
 
 ## Task 2
 
+### Flag comparisons
+
 Sum with -O0:
 
 ```
@@ -79,6 +81,10 @@ The compiler e.g. inlines code and variables, reducing the need to call them. Th
 optimization the compiler can do. That results in a harder time debugging, since variables get inlined
 and we can't track them anymore.
 
-
 Using `-ffast-math and -mavx2 -O3` didn't not reduce, but increased execution time back to around
 levels of O1, which I did not think to happen.
+
+### omp parallel
+
+The header is "omp.h" and I inserted the pragma statement just above the for loop.
+I needed to add -fopenmp as and both CFLAGS and LDFLAGS.

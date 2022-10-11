@@ -1,5 +1,5 @@
-CFLAGS := -O3 -ffast-math -mavx2
-# LDFLAGS := -O0
+CFLAGS := -O3 -fopenmp
+LDFLAGS := -fopenmp
 
 all: cpi cpi_mpi sum
 

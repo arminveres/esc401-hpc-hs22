@@ -2,6 +2,7 @@
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <omp.h>
 
 #include "gettime.h"
 
@@ -25,6 +26,7 @@ int main(int argc, char *argv[]) {
   tStart = getTime();
 
   sum = 0.0;
+#pragma omp parallel for reduction(+ : sum)
   for (i = 0; i < N; ++i) {
     data[i].x = i & 31;
     data[i].y = i & 63;
