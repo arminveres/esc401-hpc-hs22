@@ -95,3 +95,10 @@ I started with 1 thread and doubled until 128. After 64, the calculation got muc
 in `speedup.png`.
 My suspection is that having more than 64 cores/threads are such an overkill, that it takes longer
 to assign the rest of the cores/ i.e. organize them, than to just calculate with 64 threads.
+
+## Task 3
+
+Superlinear Speedup may come from different places. Cache usage can cause it, it happens then the
+variables fit perfectly into the register, main memory or general storage.
+Using more cores reduces the times the data has to be sent out to RAM and may stay only between CPU
+registers and cache. Another cause might be a very well optimized algorithm.
