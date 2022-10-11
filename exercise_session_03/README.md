@@ -88,3 +88,10 @@ levels of O1, which I did not think to happen.
 
 The header is "omp.h" and I inserted the pragma statement just above the for loop.
 I needed to add -fopenmp as and both CFLAGS and LDFLAGS.
+
+### scaling
+
+I started with 1 thread and doubled until 128. After 64, the calculation got much slower as seen
+in `speedup.png`.
+My suspection is that having more than 64 cores/threads are such an overkill, that it takes longer
+to assign the rest of the cores/ i.e. organize them, than to just calculate with 64 threads.
