@@ -6,7 +6,7 @@
 
 We extract 
 
-```
+```C
 getTime(void) {
     struct timeval tv;
     struct timezone tz;
