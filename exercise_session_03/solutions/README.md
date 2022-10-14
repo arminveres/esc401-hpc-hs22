@@ -17,7 +17,7 @@ getTime(void) {
 
 from `cpi.c` into the file `gettime.c` and also create a header file `gettime.h` (see both in Exercise 1 subfolder) containing 
 
-```
+```C
 double getTime(void);
 ```
 which makes our time measuring function accessible for other C files. 
@@ -26,7 +26,7 @@ which makes our time measuring function accessible for other C files.
 
 We exclude `getTime()` function from `cpi.c` code and input a header `#include "gettime.h"` into it. So our code now looks as follows:
 
-```
+```C
 #include <stdio.h>
 #include "gettime.h"
 
@@ -60,7 +60,7 @@ Note the difference between <> and "" in #include. <> are used to include system
 
 Modifying the `Makefile` yields e.g.
 
-```
+```C
 CFLAGS=-O3 -ffast-math -mavx2
 CC=cc
 
@@ -84,7 +84,7 @@ clean:
 
 The procedure is similar, include the `gettime.h` header and insert the `getTime()` function at the correct spots:
 
-```
+```C
 #include <stdio.h>
 #include "mpi.h"
 #include "gettime.h"
@@ -151,7 +151,7 @@ Again, include the header file and update the Makefile (files found in `Exercise
 
 I created one makefile for all the flags at once and compiled: 
 
-```
+```C
 CC=cc
 
 all: sum_O0 sum_O1 sum_O2 sum_O3 sum_O3_math_mavx2 sum_Ofast_math_mavx2 sum_omp
@@ -193,14 +193,14 @@ Explanation of  what `-O` flags do can be found in the lecture notes, we can add
 
 
 **Parallelize the code by adding the following line**
-```
+```C
 #pragma omp parallel for reduction(+ : sum) 
 ```
 **and including the appropriate header.  Hint:  think what part needs to be parallelized. Compile and run the code in parallel.**
 
 The OMP optimization of a simple for loop is very easy (observe the OMP header in the 6-th row):
 
-```
+```C
 #include <stdio.h>
 #include <stdlib.h>
 #include <assert.h>
@@ -245,7 +245,7 @@ int main(int argc, char *argv[]) {
 **Commit :Where  did  you  insert  the  line?   How  did  you  compile?   Provide  the  jobscript.**
 
 The compilation is shown in the above `Makefile`, see the part for `sum_omp`. The jobscript 
-```
+```bash
 #!/bin/bash -l
 #SBATCH --job-name="cpi_omp_extern_gettime"
 #SBATCH --account="uzg2"
@@ -264,7 +264,7 @@ export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
 srun sum_omp
 ```
 Observe, that I decided not to include directly the `--output`and `--cpus-per-task` options, I can then run the job for various number of CPU's using the command:
-```
+```bash
 sbatch --cpus-per-task=12 --output=sum_omp_12.out run_sum_omp.job 
 ```
 and only change 12 to whichever number I wish. Of course, there are other options to run the job.
@@ -276,7 +276,7 @@ Jobs can be easily run using the above command.
 **Commit :Plot the speedup and discuss.**
 
 One can easily parse the output files using following script:
-```
+```bash
 #!/bin/bash
 
 for d in sum_omp*.out; do
