@@ -33,3 +33,35 @@ regain access, since we are the owners of the file.
 3) "110"
 4) "1.*1.*1"
 5) "1111*"
+
+## Task 3
+
+`factor`: returns the prime number factorization of a given number
+`factor 20
+20: 2 2 5`
+`factor 31
+31: 31`
+
+Piping: we could use the --words flag to count the words, then subtract one to get the number of factors.
+If it's 1, then it's a prime.
+
+testing: we could check for the number of factors as said above and exit if it's not a prime, printing a statement, as
+done in my isprime.sh script.
+
+```
+time ./isprime.sh 4230283
+4230283 is a prime
+
+real	0m0.040s
+user	0m0.013s
+sys	0m0.009s
+
+```
+```
+time ./isprime.sh 4572862171001
+4572862171001 is a prime
+
+real	0m0.042s
+user	0m0.010s
+sys	0m0.012s
+```
