@@ -13,8 +13,8 @@ do
 		continue
 	fi
 
-	# echo "$(gfactor $num)"
-	if [[ $(gfactor $num | wc -w) -eq 2 ]]
+	# echo "$(factor $num)"
+	if [[ $(factor $num | wc -w) -eq 2 ]]
 	then
 		echo "$num is prime"
 	else

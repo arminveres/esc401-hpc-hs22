@@ -29,7 +29,7 @@ fi
 
 for num in $(seq $low $high)
 do
-	if [[ $(gfactor $num | wc -w) -eq 2 ]]
+	if [[ $(factor $num | wc -w) -eq 2 ]]
 	then
 		echo "$num is prime"
 	# else
