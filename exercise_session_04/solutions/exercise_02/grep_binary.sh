@@ -18,7 +18,7 @@ egrep ${GREP_OPTIONS} "110" ${BINARY_FILE}
 if [[ $? -ne 0 ]]; then echo "no such sequence found"; fi
 
 echo "4): contain at least three times a 1"
-egrep ${GREP_OPTIONS} "1+.*1+.*1+" ${BINARY_FILE}
+egrep ${GREP_OPTIONS} "1.*1.*1" ${BINARY_FILE}
 if [[ $? -ne 0 ]]; then echo "no such sequence found"; fi
 
 echo "5): contain at least three consecutive 1s"
