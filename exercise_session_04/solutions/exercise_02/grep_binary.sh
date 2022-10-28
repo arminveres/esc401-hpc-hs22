@@ -22,5 +22,5 @@ egrep ${GREP_OPTIONS} "1.*1.*1" ${BINARY_FILE}
 if [[ $? -ne 0 ]]; then echo "no such sequence found"; fi
 
 echo "5): contain at least three consecutive 1s"
-egrep ${GREP_OPTIONS} "111+" ${BINARY_FILE}
+egrep ${GREP_OPTIONS} "111" ${BINARY_FILE}
 if [[ $? -ne 0 ]]; then echo "no such sequence found"; fi
