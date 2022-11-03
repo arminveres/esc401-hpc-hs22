@@ -1,5 +1,11 @@
 # Exercise 6
 
+<!--toc:start-->
+- [Exercise 6](#exercise-6)
+  - [Task 1](#task-1)
+  - [Task 3](#task-3)
+<!--toc:end-->
+
 ## Task 1
 
 serial.c runs as well
@@ -41,3 +47,8 @@ sys	0m1.660s
   as much and therefore the being much faster.
 
 - Since it is a nested loop, one could expect a $O(N^2)$ scaling to the particles
+
+- It is possible to calculate the n-body topic in $O(N*log*N)$ and even in $O(N)$.
+  for $O(N*log*N)$ one would need to use the 'tree methods', such as the Barnes-Hut Simulation or
+  a Particle mesh method.
+  Reif and Tate (John H. Reif; Stephen R. Tate (1993). "The Complexity of N-body Simulation". Automata, Languages and Programming. Lecture Notes in Computer Science. pp. 162–176. CiteSeerX 10.1.1.38.6242.) even prove that $O(N*log*N)$ is possible.

@@ -1,5 +1,6 @@
 #include <random>
 #include <vector>
+#include <chrono>
 
 struct particle {
     float x, y, z;     // position
@@ -42,9 +43,28 @@ void ic(particles &plist, int n) {
 }
 
 int main(int argc, char *argv[]) {
-    int N = 20'000;   // number of particles
+    int N;  // number of particles
+    if (argc != 2) {
+        std::printf("No Particles given, using default of 20'000\n");
+        N = 20'000;
+    } else {
+        uint32_t input = std::atoi(argv[1]);
+        if (input == 0) {
+            std::printf("Not a number! Exiting\n");
+            return 1;
+        } else {
+            N = input;
+        }
+    }
+    auto starttime = std::chrono::high_resolution_clock::now();
+
     particles plist;  // vector of particles
     ic(plist, N);     // initialize starting position/velocity
     forces(plist);    // calculate the forces
+
+    auto endtime = std::chrono::high_resolution_clock::now();
+    auto diff = std::chrono::duration_cast<std::chrono::milliseconds>(endtime - starttime);
+    std::printf("Time taken in ms: %d\n", diff);
+
     return 0;
 }
