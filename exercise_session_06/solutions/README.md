@@ -4,6 +4,44 @@
 
 After parallelizing also the second for loop, one can observe the amount of 0's counted differs form run to run and it is not correct (check `./01_race_conditions/race_run/omp_race.logs`). To prevent this, one can use `atomic`, `critical` or `reduction` clauses, you can find the respective codes in `omp_atomic.c`, `omp_critical.c` and `omp_reduction.c` files and the output files in `<clause>_run` folder.
 
+A little tricky is the situation with the first for loop searching for the maximum value inside the file. As the `maxval` is not updated as often as `num_n0` in the second loop, the race conditions there are far more rare, but still there. 
+
+```C
+#pragma omp parallel for
+    for (int i=0;i<num_size;i++){
+        if (numbers[i] > maxval){
+            #pragma omp critical //atomic
+            maxval = numbers[i];
+        }
+
+    }
+```
+
+The above implementation of critical and atomic will fail because `maxval` is also present in if statement which is not guarded. Therefore, in case of critical we need to enclose the full `if` statement into critical region as follows:
+
+```C
+#pragma omp parallel for
+    for (int i=0;i<num_size;i++){
+        #pragma omp critical
+        {
+            if (numbers[i] > maxval){
+                maxval = numbers[i];
+            }
+        }
+    }
+```
+
+However being correct now, the above implementation basically breaks down the parallelization because everything inside the parallel region is guarded by `critical` clause and therefore accessible only to a single threads at a specific time.
+
+We cannot solve the issue using `atomic` clause as  atomic can handle only very basic operations, but not whole blocks of code. 
+
+Reduction clause works without problems because inside this region, every threads has its own local `maxval` which at the end of the region is used to found the global maximum from all the local `maxval`'s. 
+
+```C
+#pragma omp parallel for reduction(max: maxval)
+for (int i=0;i<num_size;i++) if (numbers[i] > maxval) maxval = numbers[i];
+```
+
 ## 02 - Poisson solver - OMP version
 
 Which parts of the codes should be parallelized? Most computationally heavy are nested for loops repeated in each iteration:  in `jacobi_step` and `norm_diff` of  `jacobi.cpp`.  OMP parallelization can be simply achieved by adding pragma directives right before the first for loop (one can easily test that is does not make much sense to parallelize both for loops. In norm_diff, one needs to take care to avoid race conditions related to variable `sum`. We also provide the output files from runs with 1,2,4 and 12 threads and for `nx = ny = 161` and `nx = ny = 256`. One can run these test using `./bash_run.sh <number_of_threads> <nx>`. 
