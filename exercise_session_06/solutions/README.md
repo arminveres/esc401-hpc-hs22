@@ -13,7 +13,6 @@ A little tricky is the situation with the first for loop searching for the maxim
             #pragma omp critical //atomic
             maxval = numbers[i];
         }
-
     }
 ```
 
@@ -31,7 +30,7 @@ The above implementation of critical and atomic will fail because `maxval` is al
     }
 ```
 
-However being correct now, the above implementation basically breaks down the parallelization because everything inside the parallel region is guarded by `critical` clause and therefore accessible only to a single threads at a specific time.
+However being correct now, the above implementation basically breaks down the parallelization because everything inside the parallel region is guarded by `critical` clause and therefore accessible only to a single thread at a specific time.
 
 We cannot solve the issue using `atomic` clause as  atomic can handle only very basic operations, but not whole blocks of code. 
 
