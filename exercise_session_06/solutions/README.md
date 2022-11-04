@@ -34,7 +34,7 @@ However being correct now, the above implementation basically breaks down the pa
 
 We cannot solve the issue using `atomic` clause as  atomic can handle only very basic operations, but not whole blocks of code. 
 
-Reduction clause works without problems because inside this region, every threads has its own local `maxval` which at the end of the region is used to found the global maximum from all the local `maxval`'s. 
+Reduction clause works without problems because inside the parallel region, every thread has its own local `maxval` variable which at the end of the region is used to find the global maximum from all the local `maxval`'s. 
 
 ```C
 #pragma omp parallel for reduction(max: maxval)
