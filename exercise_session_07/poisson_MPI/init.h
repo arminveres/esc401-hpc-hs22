@@ -16,14 +16,13 @@ struct params {
     int nstep_max;
     // Tolerance for the Jacobi algorithm
     double tol;
-    // process' domain 
-    int xmin,xmax,ymin,ymax;
-
+    // process' domain
+    int xmin, xmax, ymin, ymax;
 };
 
-void readParameters(const char*, params*);
+void readParameters(const char *, params *);
 
-double** allocateGrid(int nx, int ny, double** M);
+double **allocateGrid(int nx, int ny, double **M);
 double source_term(double x, double y, int function);
 double exact_solution(double x, double y, int function);
 double boundary(double x, double y, int function);
