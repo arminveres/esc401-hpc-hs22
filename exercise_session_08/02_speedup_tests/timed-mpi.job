@@ -2,8 +2,7 @@
 
 #SBATCH --job-name="mpi_poisson"
 #SBATCH --account="project"
-#SBATCH --time=00:05:00
-#SBATCH --nodes=4
+#SBATCH --time=00:15:00
 #SBATCH --ntasks-per-core=1
 #SBATCH --ntasks-per-node=1
 #SBATCH --cpus-per-task=1
@@ -14,4 +13,4 @@
 #SBATCH --output=tmpi_output.log
 #SBATCH --error=tmpi_error.log
 
-srun ./run-mpi-poisson.sh
+srun ./run-mpi-poisson.sh --nodes "$1"

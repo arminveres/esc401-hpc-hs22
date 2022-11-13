@@ -1,3 +1,3 @@
 #!/bin/bash -e
 
-time ./omp_poisson
+time -p ./omp_poisson

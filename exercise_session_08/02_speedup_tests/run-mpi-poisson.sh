@@ -1,3 +1,3 @@
 #!/bin/bash -e
 
-time ./mpi_poisson
+time -p ./mpi_poisson
