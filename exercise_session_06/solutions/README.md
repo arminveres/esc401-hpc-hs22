@@ -45,6 +45,45 @@ for (int i=0;i<num_size;i++) if (numbers[i] > maxval) maxval = numbers[i];
 
 Which parts of the codes should be parallelized? Most computationally heavy are nested for loops repeated in each iteration:  in `jacobi_step` and `norm_diff` of  `jacobi.cpp`.  OMP parallelization can be simply achieved by adding pragma directives right before the first for loop (one can easily test that is does not make much sense to parallelize both for loops. In norm_diff, one needs to take care to avoid race conditions related to variable `sum`. We also provide the output files from runs with 1,2,4 and 12 threads and for `nx = ny = 161` and `nx = ny = 256`. One can run these test using `./bash_run.sh <number_of_threads> <nx>`. 
 
+Parallelization of `norm_diff`:
+
+```C
+double norm_diff(params p, double** mat1, double** mat2){
+    double sum = 0.0;
+    #pragma omp parallel for reduction (+ : sum)
+    for (int i=0; i<p.nx; i++){
+        for (int j=0; j<p.ny; j++){
+            sum += (mat1[i][j] - mat2[i][j])*(mat1[i][j] - mat2[i][j]);
+        }
+    }
+    sum /= p.nx*p.ny;
+    sum = sqrt(sum);
+    return sum;
+}
+```
+
+Parallelization of `jacobi_step`:
+
+```C
+void jacobi_step(params p, double** u_new, double** u_old, double** f){
+    double dx = 1.0/((double)p.nx - 1);
+    double dy = 1.0/((double)p.ny - 1);
+	
+    #pragma omp parallel for
+    for (int i=0; i<p.nx; i++){
+        for (int j=0; j<p.ny; j++)
+            u_old[i][j] = u_new[i][j];
+    }
+
+    #pragma omp parallel for
+    for (int i=1; i<p.nx-1; i++){
+        for (int j=1; j<p.ny-1; j++)
+            u_new[i][j] = 0.25*(u_old[i-1][j] + u_old[i+1][j] + u_old[i][j-1] + u_old[i][j+1] - dx*dy*f[i][j]);
+    }
+}
+```
+
+
 ## 03 - Time complexity
 
 * **Let’s first write an OpenMP version of `nbody.cpp`.  This code is slightly different from what you already encountered as it contains nested for loops.  Here you can decide toadd OpenMP parallel directive to the first, the second, or to both loops.  Which one is the most efficient solution, why?**
