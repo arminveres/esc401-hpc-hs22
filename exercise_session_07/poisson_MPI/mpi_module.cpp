@@ -52,13 +52,11 @@ int halo_comm(params p, int my_rank, int size, double** u, double* fromLeft, dou
         fromRight[j] = 0;
     }  // initialize fromLeft and fromRight
 
-    // double* column_to_right = new double[COL_DIFF];
-    double column_to_right[COL_DIFF];
+    double* column_to_right = new double[COL_DIFF];
     for (int j = 0; j < (p.ymax - p.ymin); j++) {
         column_to_right[j] = u[p.xmax - p.xmin - 1][j];
     }
-    // double* column_to_left = new double[COL_DIFF];
-    double column_to_left[COL_DIFF];
+    double* column_to_left = new double[COL_DIFF];
     for (int j = 0; j < (p.ymax - p.ymin); j++) {
         column_to_left[j] = u[0][j];
     }

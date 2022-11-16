@@ -1,9 +1,13 @@
 #include "jacobi.h"
 
-#include <math.h>
+#include <cmath>
 #include <cstdio>
 
 #include "mpi_module.h"
+
+#ifdef _OPENMP
+#include <omp.h>
+#endif  // _OPENMP
 
 /**
  * @brief      Computes norm of the difference between two matrices
@@ -16,6 +20,7 @@
  */
 double norm_diff(params p, double** mat1, double** mat2) {
     double sum = 0.0;
+#pragma omp parallel for reduction(+ : sum)
     for (int i = p.xmin; i < p.xmax; i++) {
         for (int j = p.ymin; j < p.ymax; j++) {
             int idx = i - p.xmin;
@@ -39,6 +44,7 @@ double norm_diff(params p, double** mat1, double** mat2) {
  * @param      u_old  The old solution
  * @param      f      The source term
  */
+/*
 void jacobi_step_old(params p, double** u_new, double** u_old, double** f, int my_rank, int size) {
     double dx = 1.0 / ((double)p.nx - 1);
     double dy = 1.0 / ((double)p.ny - 1);
@@ -54,7 +60,7 @@ void jacobi_step_old(params p, double** u_new, double** u_old, double** f, int m
 
     halo_comm(p, my_rank, size, u_new, fromLeft, fromRight);
 
-    printf("Function jacobi_step in jacobi.cpp : adapt the update of u_new.\n");
+    // printf("Function jacobi_step in jacobi.cpp : adapt the update of u_new.\n");
     for (int i = p.xmin; i < p.xmax; i++) {
         if (i == 0 || i == p.nx - 1) continue;
         for (int j = p.ymin; j < p.ymax; j++) {
@@ -69,6 +75,7 @@ void jacobi_step_old(params p, double** u_new, double** u_old, double** f, int m
     if (p.nx != p.ny)
         printf("In function jacobi_step (jacobi.cpp l.26): nx != ny, check jacobi updates\n");
 }
+*/
 
 /**
  * @brief      Compute a Jacobi iteration to solve Poisson equation. This function updates
@@ -87,10 +94,13 @@ void jacobi_step(params p, double** u_new, double** u_old, double** f, int my_ra
     int size_x = p.xmax - p.xmin;
     int size_y = p.ymax - p.ymin;
 
-    double fromLeft[size_y], fromRight[size_y];
+    double* fromLeft = new double[size_y];
+    double* fromRight = new double[size_y];
 
+#pragma omp parallel for
     for (int i = 0; i < size_x; i++) {
         for (int j = 0; j < size_y; j++) {
+#pragma omp critical
             u_old[i][j] = u_new[i][j];
         }
     }
@@ -98,11 +108,13 @@ void jacobi_step(params p, double** u_new, double** u_old, double** f, int my_ra
     halo_comm(p, my_rank, size, u_old, fromLeft, fromRight);
 
     double top, bottom, left, right;
+    int j;
+#pragma omp parallel for private(j, top, bottom, left, right)
     for (int i = p.xmin; i < p.xmax; i++) {
         if (i == 0 || i == p.nx - 1) {
             continue;
         }
-        for (int j = p.ymin; j < p.ymax; j++) {
+        for (j = p.ymin; j < p.ymax; j++) {
             if (j == 0 || j == p.ny - 1) {
                 continue;
             }
