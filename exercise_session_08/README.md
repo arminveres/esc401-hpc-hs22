@@ -9,3 +9,13 @@ Weirldy enough, the timing has been utterly unstable, leading to no information 
 anyway.
 
 some of the MPI runs took so long, that it overran the 15 limit mark I set it to.
+
+## Perftools
+
+- No output noticed while compiling:
+```
+$ make
+g++ -O -g -ffast-math    nbody.cpp   -o nbody
+```
+I was also not able to make it produce any cray output.
+I loaded perftools-lite, tried different prgenvs to no avail.
