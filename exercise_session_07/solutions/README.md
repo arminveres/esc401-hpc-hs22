@@ -98,7 +98,17 @@ We defined periodic boundaries so the rightmost rank is a neighbour of leftmost 
 ```C
 MPI_Cart_shift(comm, 0, 1, &left_rank, &right_rank);
 ```
-Rest of the code remains the same as in `ring_nonblocking.c`.
+Rest of the code remains the same as in `ring_nonblocking.c`, however, the communicator used is not `MPI_COMM_WORLD`, but `comm` instead:
+
+```C
+for(int i=0; i<size; i++){
+    MPI_Isend(&send_rank, 1, MPI_INT, right_rank, 0, comm, &request[0]);       
+    MPI_Irecv(&recv_rank, 1, MPI_INT, left_rank, 0, comm, &request[1]);
+    MPI_Waitall(2, request, status); 
+    send_rank = recv_rank;
+    my_sum += recv_rank;
+}
+```
 
 
 # Exercise 2: PI revisited
