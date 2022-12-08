@@ -5,6 +5,7 @@
 First I didn't even saw in the Exercise, that the mpich error was meant to be, so I aliased cc=pgcc, and the error
 disappeared.
 Following were the run times:
+
 ```
 PI = 3.141592653589793 computed in 0.4486 seconds
 PI = 3.141592653589793 computed in 0.01414 seconds
@@ -30,6 +31,7 @@ Job information (2/2)
 ```
 
 Now running with the downgraded mpich:
+
 ```
 PI = 3.141592653589793 computed in 0.4431 seconds
 PI = 3.141592653589793 computed in 0.01413 seconds
@@ -53,12 +55,14 @@ Job information (2/2)
 ------------ ------------ ------------ -------- -------------
       averes         uzg2        debug        1      0.323 kJ
 ```
+
 So pretty much the same, though the first iteration in each case, needs extra time, to set up the variable and memory,
 leading to a 3x higher time to execute. After that since all is setup, it runs faster.
 
 ## Task 2: Cuda
 
 The task runs only once and takes
+
 ```
 PI = 3.14159265358979 computed in 0.08552 seconds
 
@@ -78,5 +82,13 @@ Job information (2/2)
 ------------ ------------ ------------ -------- -------------
       averes         uzg2        debug        1      1.256 kJ
 ```
-Which is half as much as the first round with setup of openacc.
-This is probably due to cuda being faster, because one can allocate thing more precisely and leave less
+
+Which is half as much as the first round with setup of OpenACC.
+This is probably due to Cuda being faster, because one can allocate thing more precisely and leave less
+
+## Task 3
+
+Since the first run is always around 1.5 seconds, it skews the whole data set. Though one can safely say, that the first
+part needs to do the setup, therefore it takes the longest, and every subsequent run is more efficient and faster.
+
+I also interpret the data, as: the more threads and blocks, the more efficient the calculation.

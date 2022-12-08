@@ -1,0 +1,104 @@
+BLOCK: 60, THREAD: 16, PI = 3.141592653589794 computed in 0.1581 seconds
+BLOCK: 60, THREAD: 32, PI = 3.141592653589793 computed in 0.07295 seconds
+BLOCK: 60, THREAD: 48, PI = 3.141592653589794 computed in 0.04938 seconds
+BLOCK: 60, THREAD: 64, PI = 3.141592653589792 computed in 0.03708 seconds
+BLOCK: 60, THREAD: 80, PI = 3.141592653589793 computed in 0.03057 seconds
+BLOCK: 60, THREAD: 96, PI = 3.141592653589796 computed in 0.02551 seconds
+BLOCK: 60, THREAD: 112, PI = 3.141592653589795 computed in 0.02251 seconds
+BLOCK: 60, THREAD: 128, PI = 3.1415926535898 computed in 0.01957 seconds
+BLOCK: 60, THREAD: 144, PI = 3.141592653589793 computed in 0.01777 seconds
+BLOCK: 60, THREAD: 160, PI = 3.141592653589789 computed in 0.01601 seconds
+BLOCK: 120, THREAD: 16, PI = 3.141592653589793 computed in 0.07328 seconds
+BLOCK: 120, THREAD: 32, PI = 3.141592653589792 computed in 0.03666 seconds
+BLOCK: 120, THREAD: 48, PI = 3.141592653589796 computed in 0.02492 seconds
+BLOCK: 120, THREAD: 64, PI = 3.1415926535898 computed in 0.01871 seconds
+BLOCK: 120, THREAD: 80, PI = 3.141592653589789 computed in 0.01598 seconds
+BLOCK: 120, THREAD: 96, PI = 3.141592653589788 computed in 0.01334 seconds
+BLOCK: 120, THREAD: 112, PI = 3.141592653589794 computed in 0.01192 seconds
+BLOCK: 120, THREAD: 128, PI = 3.141592653589795 computed in 0.01045 seconds
+BLOCK: 120, THREAD: 144, PI = 3.141592653589794 computed in 0.01317 seconds
+BLOCK: 120, THREAD: 160, PI = 3.141592653589796 computed in 0.01188 seconds
+BLOCK: 180, THREAD: 16, PI = 3.141592653589794 computed in 0.04885 seconds
+BLOCK: 180, THREAD: 32, PI = 3.141592653589796 computed in 0.02447 seconds
+BLOCK: 180, THREAD: 48, PI = 3.141592653589793 computed in 0.01705 seconds
+BLOCK: 180, THREAD: 64, PI = 3.141592653589788 computed in 0.01282 seconds
+BLOCK: 180, THREAD: 80, PI = 3.141592653589795 computed in 0.01112 seconds
+BLOCK: 180, THREAD: 96, PI = 3.141592653589794 computed in 0.009309 seconds
+BLOCK: 180, THREAD: 112, PI = 3.141592653589796 computed in 0.01132 seconds
+BLOCK: 180, THREAD: 128, PI = 3.141592653589796 computed in 0.009946 seconds
+BLOCK: 180, THREAD: 144, PI = 3.141592653589803 computed in 0.01131 seconds
+BLOCK: 180, THREAD: 160, PI = 3.141592653589794 computed in 0.01021 seconds
+BLOCK: 240, THREAD: 16, PI = 3.141592653589792 computed in 0.03725 seconds
+BLOCK: 240, THREAD: 32, PI = 3.1415926535898 computed in 0.01866 seconds
+BLOCK: 240, THREAD: 48, PI = 3.141592653589788 computed in 0.01326 seconds
+BLOCK: 240, THREAD: 64, PI = 3.141592653589795 computed in 0.009976 seconds
+BLOCK: 240, THREAD: 80, PI = 3.141592653589796 computed in 0.01184 seconds
+BLOCK: 240, THREAD: 96, PI = 3.141592653589796 computed in 0.009898 seconds
+BLOCK: 240, THREAD: 112, PI = 3.141592653589791 computed in 0.01082 seconds
+BLOCK: 240, THREAD: 128, PI = 3.141592653589798 computed in 0.009532 seconds
+BLOCK: 240, THREAD: 144, PI = 3.141592653589796 computed in 0.01098 seconds
+BLOCK: 240, THREAD: 160, PI = 3.141592653589797 computed in 0.009927 seconds
+BLOCK: 300, THREAD: 16, PI = 3.141592653589793 computed in 0.02995 seconds
+BLOCK: 300, THREAD: 32, PI = 3.141592653589789 computed in 0.01502 seconds
+BLOCK: 300, THREAD: 48, PI = 3.141592653589795 computed in 0.01105 seconds
+BLOCK: 300, THREAD: 64, PI = 3.141592653589796 computed in 0.008336 seconds
+BLOCK: 300, THREAD: 80, PI = 3.141592653589791 computed in 0.0108 seconds
+BLOCK: 300, THREAD: 96, PI = 3.141592653589794 computed in 0.009043 seconds
+BLOCK: 300, THREAD: 112, PI = 3.141592653589792 computed in 0.01042 seconds
+BLOCK: 300, THREAD: 128, PI = 3.141592653589797 computed in 0.009181 seconds
+BLOCK: 300, THREAD: 144, PI = 3.141592653589798 computed in 0.01021 seconds
+BLOCK: 300, THREAD: 160, PI = 3.141592653589788 computed in 0.009211 seconds
+BLOCK: 360, THREAD: 16, PI = 3.141592653589796 computed in 0.02548 seconds
+BLOCK: 360, THREAD: 32, PI = 3.141592653589788 computed in 0.01279 seconds
+BLOCK: 360, THREAD: 48, PI = 3.141592653589794 computed in 0.0116 seconds
+BLOCK: 360, THREAD: 64, PI = 3.141592653589796 computed in 0.008766 seconds
+BLOCK: 360, THREAD: 80, PI = 3.141592653589794 computed in 0.01102 seconds
+BLOCK: 360, THREAD: 96, PI = 3.141592653589796 computed in 0.009251 seconds
+BLOCK: 360, THREAD: 112, PI = 3.141592653589794 computed in 0.01015 seconds
+BLOCK: 360, THREAD: 128, PI = 3.141592653589793 computed in 0.008939 seconds
+BLOCK: 360, THREAD: 144, PI = 3.141592653589798 computed in 0.01019 seconds
+BLOCK: 360, THREAD: 160, PI = 3.141592653589796 computed in 0.009233 seconds
+BLOCK: 420, THREAD: 16, PI = 3.141592653589795 computed in 0.02195 seconds
+BLOCK: 420, THREAD: 32, PI = 3.141592653589794 computed in 0.01103 seconds
+BLOCK: 420, THREAD: 48, PI = 3.141592653589796 computed in 0.01132 seconds
+BLOCK: 420, THREAD: 64, PI = 3.141592653589791 computed in 0.008555 seconds
+BLOCK: 420, THREAD: 80, PI = 3.141592653589792 computed in 0.01039 seconds
+BLOCK: 420, THREAD: 96, PI = 3.141592653589794 computed in 0.008704 seconds
+BLOCK: 420, THREAD: 112, PI = 3.141592653589751 computed in 0.009962 seconds
+BLOCK: 420, THREAD: 128, PI = 3.14159265358979 computed in 0.008774 seconds
+BLOCK: 420, THREAD: 144, PI = 3.141592653589798 computed in 0.009787 seconds
+BLOCK: 420, THREAD: 160, PI = 3.141592653589807 computed in 0.008845 seconds
+BLOCK: 600, THREAD: 16, PI = 3.141592653589789 computed in 0.01659 seconds
+BLOCK: 600, THREAD: 32, PI = 3.141592653589796 computed in 0.008381 seconds
+BLOCK: 600, THREAD: 48, PI = 3.141592653589794 computed in 0.01103 seconds
+BLOCK: 600, THREAD: 64, PI = 3.141592653589797 computed in 0.008357 seconds
+BLOCK: 600, THREAD: 80, PI = 3.141592653589788 computed in 0.01034 seconds
+BLOCK: 600, THREAD: 96, PI = 3.141592653589796 computed in 0.0087 seconds
+BLOCK: 600, THREAD: 112, PI = 3.141592653589807 computed in 0.009659 seconds
+BLOCK: 600, THREAD: 128, PI = 3.141592653589801 computed in 0.008568 seconds
+BLOCK: 600, THREAD: 144, PI = 3.1415926535898 computed in 0.00967 seconds
+BLOCK: 600, THREAD: 160, PI = 3.141592653589786 computed in 0.008789 seconds
+80
+
+
+Batch Job Summary Report (version 21.01.1) for Job "cpicuda" (43372675) on daint
+
+Job information (1/3)
+-----------------------------------------------------------------------------------------------------
+             Submit            Eligible               Start                 End    Elapsed Time limit
+------------------- ------------------- ------------------- ------------------- ---------- ----------
+2022-12-08T16:40:40 2022-12-08T16:40:40 2022-12-08T16:40:42 2022-12-08T16:40:49   00:00:07   00:05:00
+-----------------------------------------------------------------------------------------------------
+
+Job information (2/3)
+-------------------------------------------------------------
+    Username      Account    Partition   NNodes        Energy
+------------ ------------ ------------ -------- -------------
+      averes         uzg2        debug        1      0.461 kJ
+
+Job information (3/3) - GPU utilization data
+----------------------------------------------------
+   Node name       Usage      Max mem Execution time
+------------ ----------- ------------ --------------
+    nid02357        64 %      364 MiB       00:00:02
+

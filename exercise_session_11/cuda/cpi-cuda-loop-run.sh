@@ -8,10 +8,10 @@
 #SBATCH --partition=debug
 #SBATCH --constraint=gpu
 #SBATCH --account=uzg2
-#SBATCH --output=output.log
-#SBATCH --error=error.log
+#SBATCH --output=output-loop.log
+#SBATCH --error=error-loop.log
 
 export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
 export CRAY_CUDA_MPS=1
 module load daint-gpu
-srun ./cpi
+srun ./loop_cpi
