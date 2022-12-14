@@ -48,7 +48,7 @@ ubuntu@172.23.80.210:-$ sudo apt install -q python-tk
 Use the following Dockerfile to create a container for the Poisson solver:
 ```dockerfile
 # Use the official image as a parent image.
-FROM ubuntu:trusty
+FROM ubuntu:latest
 
 # Install dependencies
 RUN apt-get update -q && \
