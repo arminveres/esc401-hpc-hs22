@@ -1,47 +1,44 @@
 #include <iostream>
+
 #include "util.h"
 #ifdef _OPENMP
 #include <omp.h>
 #endif
 
-void axpy(int n, double alpha, const double *x, double* y) {
-
-    #pragma omp parallel for
-    for(auto i=0; i<n; ++i) {
-        y[i] += alpha*x[i];
+void axpy(int n, double alpha, const double* x, double* y) {
+#pragma omp parallel for
+    for (auto i = 0; i < n; ++i) {
+        y[i] += alpha * x[i];
     }
 }
 
 // OpenACC implementation of axpy kernel
-void axpy_gpu(int n, double alpha, const double *x, double* y) {
-
+void axpy_gpu(int n, double alpha, const double* x, double* y) {
     int i;
 
-    // TODO: offload this loop to the GPU
-    for(i = 0; i < n; ++i) {
-        y[i] += alpha*x[i];
+// TODO: offload this loop to the GPU
+#pragma acc parallel loop pcopyin(x[:n]) pcopy(y[:n])
+    for (i = 0; i < n; ++i) {
+        y[i] += alpha * x[i];
     }
 }
 
 // version informations
 void print_versions(void) {
-
 #ifdef _OPENMP
     int cscs_omp_v, ompnumthreadid, ompnumthreads1;
     cscs_omp_v = _OPENMP;
-    char* ompnumthreads2 = getenv ("OMP_NUM_THREADS");
+    char* ompnumthreads2 = getenv("OMP_NUM_THREADS");
 
-    #pragma omp parallel private(ompnumthreadid) shared(ompnumthreads1)
+#pragma omp parallel private(ompnumthreadid) shared(ompnumthreads1)
     {
         ompnumthreadid = omp_get_thread_num();
-        // #pragma omp barrier
-        #pragma omp master
+// #pragma omp barrier
+#pragma omp master
         {
             ompnumthreads1 = omp_get_num_threads();
-            std::cout << "OPENMP version: " << cscs_omp_v
-                      << " num_threads=" << ompnumthreads1
-                      << " OMP_NUM_THREADS=" << ompnumthreads2
-                      << std::endl;
+            std::cout << "OPENMP version: " << cscs_omp_v << " num_threads=" << ompnumthreads1
+                      << " OMP_NUM_THREADS=" << ompnumthreads2 << std::endl;
         }
     }
 #endif
@@ -50,13 +47,10 @@ void print_versions(void) {
     std::cout << "OPENACC version: " << _OPENACC << std::endl;
 #endif
 
-// MPI_Get_version()
-
-
+    // MPI_Get_version()
 }
 
-int main(int argc, char** argv)
-{
+int main(int argc, char** argv) {
     size_t pow = read_arg(argc, argv, 1, 16);
     size_t n = 1 << pow;
 
@@ -81,14 +75,14 @@ int main(int argc, char** argv)
     auto time_axpy_gpu = get_time() - start;
 
     std::cout << "-------\ntimings\n-------\n";
-    std::cout << "axpy (openmp): "  << time_axpy_omp << " s\n";
+    std::cout << "axpy (openmp): " << time_axpy_omp << " s\n";
     std::cout << "axpy (openacc): " << time_axpy_gpu << " s\n";
 
     // check for errors
     auto errors = 0;
-    #pragma omp parallel for reduction(+:errors)
+#pragma omp parallel for reduction(+ : errors)
     for (auto i = 0; i < n; ++i) {
-        if (std::fabs(6.-y[i]) > 1e-15) {
+        if (std::fabs(6. - y[i]) > 1e-15) {
             ++errors;
         }
     }
