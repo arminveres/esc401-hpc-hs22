@@ -14,6 +14,7 @@ __global__ void kern_set_val (float *gpu_ptr, float value, int n) {
 int main () {
   int i, failed=0;
   int N = 1024;   // size of vector
+  float value = 11.0; //value ptr should be initialized to
   float *ptr;     // Host pointer 
   float *gpu_ptr; // Device pointer
   
@@ -40,7 +41,7 @@ int main () {
   printf ("\n");
 
   for (i = 0; i < N; i++) {//All values are compared
-    if (fabs(ptr[i]-11.0) > 1e-8) {
+    if (fabs(ptr[i]-value) > 1e-8) {
       failed=1;
     }
   }
