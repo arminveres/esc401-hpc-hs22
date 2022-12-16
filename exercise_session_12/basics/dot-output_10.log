@@ -1,0 +1,4 @@
+dot product OpenACC of length n = 1024 : 0.0078125MB
+expected 9286 got 9286: success
+Host kernel took 0 s
+GPU kernel took 0.018204 s

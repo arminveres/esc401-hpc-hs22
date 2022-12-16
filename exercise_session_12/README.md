@@ -151,3 +151,36 @@ dispersion 1D test of length n = 33554436 : 256MB
 Host version took 6.24244 s (0.124849 s/step)
 GPU version took 0.263418 s (0.00526836 s/step)
 ```
+
+## Task 3: dot
+
+This task takes longer to run on the cpu, probably because of all the copying and also the reduction takes
+its toll on the performance, needing to reduce all the results from each of the streaming cores.
+
+### n=10
+
+```
+dot product OpenACC of length n = 1024 : 0.0078125MB
+expected 9286 got 9286: success
+Host kernel took 0 s
+GPU kernel took 0.018204 s
+```
+
+### n=20
+
+```
+dot product OpenACC of length n = 1048576 : 8MB
+expected 9.44282e+06 got 9.44282e+06: success
+Host kernel took 0.000828028 s
+GPU kernel took 0.0202448 s
+```
+
+### n=30
+
+```
+
+dot product OpenACC of length n = 33554432 : 256MB
+expected 3.0201e+08 got 3.0201e+08: success
+Host kernel took 0.032593 s
+GPU kernel took 0.0629818 s
+```
