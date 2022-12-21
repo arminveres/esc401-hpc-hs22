@@ -46,4 +46,4 @@ PI = 3.141592653589793 computed in 0.101 seconds
 
 ## Exercise 2
 
-Instead of five, we obtain only a single print statement (time). 
+Instead of five, we obtain only a single print statement (time). For larger number of blocks and threads per block, we get times ~0.01s similar to those obtained in openacc (not initial time). With CUDA the situation is similar and one should also get first slow iteration followed by much faster ones. However, CUDA code timing is now different - it measures only the time of parallel computation and not of the whole code. If we did that and included a for loop, we would get results similar to openacc.
