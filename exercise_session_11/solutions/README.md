@@ -34,5 +34,12 @@ int main (int argc, const char *argv[]) {
 
 Notice a necessary reduction regarding `sum` variable. On the other hand, `private(x)` is not required here as scalars (and loop variables) are by default private.
 
-Find job script and output file in folder `openacc`. Note that it is enough to run on a single CPU per task, as parallelization happens on the GPU. First iteration is significantly longer that the remaining ones - the reason is GPU needs to be set up and data transfer handled prior the computation.
+Find job script and output file in folder `openacc`. Note that it is enough to run on a single CPU per task, as parallelization happens on the GPU. First iteration is significantly longer that the remaining ones (see below). The reason is GPU needs to be set up and data transfer handled prior the computation.
 
+```
+PI = 3.141592653589793 computed in 1.429 seconds
+PI = 3.141592653589793 computed in 0.01288 seconds
+PI = 3.141592653589793 computed in 0.02531 seconds
+PI = 3.141592653589793 computed in 0.05022 seconds
+PI = 3.141592653589793 computed in 0.101 seconds
+```
