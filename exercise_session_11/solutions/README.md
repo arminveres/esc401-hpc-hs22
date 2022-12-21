@@ -47,3 +47,9 @@ PI = 3.141592653589793 computed in 0.101 seconds
 ## Exercise 2
 
 Instead of five, we obtain only a single print statement (time). For larger number of blocks and threads per block, we get times ~0.01s similar to those obtained in openacc (not initial time). With CUDA the situation is similar and one should also get first slow iteration followed by much faster ones. However, CUDA code timing is now different - it measures only the time of parallel computation and not of the whole code. If we did that and included a for loop, we would get results similar to openacc.
+
+## Exercise 3
+
+The results of parametric study is shown in figure below. We can see that for small total number of threads (Number of Threads x Number of Blocks), the performance is low. When enough number of threads are used (order of 10000 here), the improvement is not anymore that rapid. Note that the maximum number of threads used in our test is 600x160=96000 and maximum number of threads per GPU is 56x2048=114688 thus more that the maximum number we required (56 SM's per GPU, each up to 2048 threads). Let us assume the most extreme case - 600x160, thus 600 blocks each requesting 160 threads. As threads are scheduled in warps (32 threads running on 32 CPUs), 160 threads will in reality mean 160/32=5 warps per block. An SM can run floor(2048/160)=12 blocks at once and thus in order to execute 600 of them, we need 600/12=50 of them. 50<56, so full computation can fit on a P100 GPU at once. 
+
+![alt text](https://github.com/jbucko/hpc_esc_401/blob/master/exercise_session_11/solutions/cuda/cuda_parallelization_study.jpg)
