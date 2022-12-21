@@ -43,3 +43,7 @@ PI = 3.141592653589793 computed in 0.02531 seconds
 PI = 3.141592653589793 computed in 0.05022 seconds
 PI = 3.141592653589793 computed in 0.101 seconds
 ```
+
+## Exercise 2
+
+Instead of five, we obtain only a single print statement (time). 
