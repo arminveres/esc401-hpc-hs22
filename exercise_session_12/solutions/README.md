@@ -106,7 +106,7 @@ void blur_twice_gpu_naive(double *in , double *out , int n, int nsteps)
             buffer[i] = blur(i, in);
         }
 
-        #pragma acc parallel loop pcopyin(buffer[0:n]) pcopy(out[0:n])
+        #pragma acc parallel loop pcopyin(buffer[0:n]) pcopyout(out[2:n-4])
         for (auto i = 2; i < n-2; ++i) {
             out[i] = blur(i, buffer);
         }
