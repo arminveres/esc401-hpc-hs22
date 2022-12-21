@@ -1,4 +1,4 @@
-## Solutions to Exercise sheet 11
+## Solutions to Exercise sheet 12
 
 
 First of all, in order to compile our codes we need to switch from cray programming environment and go for pgi, in addition, we  need to load necessary modules. That sums up to execute the following:
