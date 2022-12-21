@@ -37,6 +37,8 @@ void axpy_gpu(int n, double alpha, const double *x, double* y) {
 
 We use values of both `x,y` and output values of `y`, therefore it is enough to specify `pcopyin(x[0:n])`, but we need `pcopy(y[0:n])`. 
 
+Performance-wise, OMP is better compared to GPU, which is understandable as the computation in this particular exercise is simple and bottleneck in GPU case is a data transfer between host and device memory. 
+
 ### Exercise 2 [basics/blur]
 
 There is several TODO's altogether in file `blur_openacc.cpp` which need to be addressed. We will comment on them in the following three bullet points
@@ -182,6 +184,8 @@ void blur_twice_gpu_nocopies(double *in , double *out , int n, int nsteps)
 </li>
 </ol>
     
+Regarding performance, OMP again performs best. We also see that `no_copies` version performs approximately two times better than `naive`. This is understandable as there is two times less communication between device and host happening (this indeed indicates that the communication is real bottleneck of computation and not blurring of the array).
+   
 ### Exercise 3 [basics/dot]
 
 There is only one TODO in the last exercise. We need to include data clause to make the data handling efficient and include clause ensuring variable `sum` should keep track a global contributions to the scalar product among all the threads. It is enough to copy in vectors `x,y` and reduce the element-wise products to `sum`. So one should replace the original code
@@ -215,3 +219,5 @@ double dot_gpu(const double *x, const double *y, int n) {
     return sum;
 }
 ```
+    
+Here again, OMP is faster.    
