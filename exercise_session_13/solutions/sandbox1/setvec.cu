@@ -9,7 +9,7 @@ __global__ void kern_set_val (float *gpu_ptr, float value, int n) {
   int i;
   //TO DO: evaluate the value of i 
   i = threadIdx.x + blockIdx.x * blockDim.x;
-  gpu_ptr[i] = value;
+  if(i<n) gpu_ptr[i] = value;
 }
 
 int main () {
